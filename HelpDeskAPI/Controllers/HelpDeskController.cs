@@ -1,4 +1,4 @@
-﻿using HelpDeskAPI.Models;
+using HelpDeskAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Sockets;
@@ -7,11 +7,11 @@ namespace HelpDeskAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HelpDeskConroller : ControllerBase
+    public class HelpDeskController : ControllerBase
     {
         private readonly HelpDeskDbContext _dbContext;
 
-        public HelpDeskConroller(HelpDeskDbContext dbContext)
+        public HelpDeskController(HelpDeskDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -67,7 +67,7 @@ namespace HelpDeskAPI.Controllers
 
         }
 
-        [HttpPut("{Favorite1}")]
+        [HttpDelete("{Favorite1}")]
         public IActionResult DeleteFavorite(int idTicket, [FromBody] Favorite deleteFavorite)
         {
             var favorite = _dbContext.Favorites.Find(idTicket);
@@ -79,7 +79,7 @@ namespace HelpDeskAPI.Controllers
 
         }
 
-        [HttpGet]
+        [HttpGet("{GetFavorites}")]
         public ActionResult<IEnumerable<Favorite>> GetFavorites()
         {
             return _dbContext.Favorites.ToList();

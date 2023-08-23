@@ -1,5 +1,6 @@
 using HelpDeskAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using HelpDeskAPI.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,5 +44,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseCors();
+
+app.MapTicketEndpoints();
 
 app.Run();
