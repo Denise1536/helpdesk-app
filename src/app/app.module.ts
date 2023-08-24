@@ -8,6 +8,7 @@ import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
 import { TicketFormComponent } from './ticket-form/ticket-form.component';
 import { TicketFavoriteComponent } from './ticket-favorite/ticket-favorite.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { TicketFavoriteComponent } from './ticket-favorite/ticket-favorite.compo
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+
     
   ],
   providers: [],

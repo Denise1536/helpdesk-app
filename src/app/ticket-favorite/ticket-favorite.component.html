@@ -1,1 +1,24 @@
-<p>ticket-favorite works!</p>
+<div>
+    <h1>Ticket Details</h1>
+ 
+    <div *ngIf="tickets">
+      <div>
+        <strong>ID:</strong> {{ tickets.idTicket }}
+      </div>
+      <div>
+        <strong>Title:</strong> {{ tickets.title }}
+      </div>
+      <div>
+        <strong>Details:</strong> {{ tickets.details }}
+      </div>
+      <div>
+        <button routerLink="/tickets">
+          Back to List
+        </button>
+      </div>
+    </div>
+ 
+    <div *ngIf="!tickets">
+      <p>Ticket not found!</p>
+    </div>
+  </div>

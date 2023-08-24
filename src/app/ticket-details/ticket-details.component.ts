@@ -7,6 +7,27 @@ import { HelpdeskService } from '../helpdesk.service';
   templateUrl: './ticket-details.component.html',
   styleUrls: ['./ticket-details.component.css']
 })
-export class TicketDetailsComponent {
+export class TicketDetailsComponent implements OnInit{
+
+tickets: any; 
+
+constructor(private route: ActivatedRoute,private helpdeskService: HelpdeskService) {}
+
+ngOnInit(): void {
+  this.getTicketDetails();
+}
+
+getTicketDetails() {
+  const id = this.route.snapshot.paramMap.get('idTicket');
+  if (id) {
+    this.helpdeskService.getTicket(+id).subscribe((ticket: any) => {
+      this.tickets = ticket;
+    });
+  }
+}
+
+
+
+
 
 }
