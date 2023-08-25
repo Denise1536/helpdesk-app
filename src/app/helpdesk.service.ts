@@ -14,10 +14,9 @@ export class HelpdeskService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getTicket(idTicket:number):
-  Observable<any> {
+  getTicket(idTicket: number): Observable<any> {
     const url = `${this.apiUrl}/${idTicket}`;
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<any>(url);
   }
 
   createTicket(ticket: any): Observable<any> {
@@ -35,7 +34,7 @@ export class HelpdeskService {
 
   deleteFavorite(favorite: any): Observable<any> {
     const url = `${this.apiUrl}/${!favorite}`;
-    return this.http.post<any>(this.apiUrl, favorite);
+    return this.http.post<any>(url, favorite);
   }
 
   getFavorites(favorite: any): Observable<any> {

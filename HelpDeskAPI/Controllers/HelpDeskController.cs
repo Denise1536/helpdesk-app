@@ -27,7 +27,7 @@ namespace HelpDeskAPI.Controllers
         public ActionResult<Ticket> GetTicket(int idTicket)
         {
             var ticket = _dbContext.Tickets.Find(idTicket);
-
+      //we edited the two lines below 8.24
             if (ticket != null) { return ticket; }
             return NotFound();
         }

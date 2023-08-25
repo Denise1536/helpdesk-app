@@ -9,13 +9,20 @@ import { HelpdeskService } from '../helpdesk.service';
 export class TicketListComponent implements OnInit{
   tickets: any[] = [];
 
-  constructor(private dataService:HelpdeskService){}
+  constructor(private helpdeskService:HelpdeskService){}
 
   ngOnInit(): void {
-    this.getTicketsFromService()
+    this.getTickets()
   }
+ 
+getTickets() {
+  this.helpdeskService.getTickets().subscribe((tickets) => {
+    this.tickets = tickets;
+  });
+}
+
   getTicketsFromService() {
-    this.dataService.getTickets().subscribe(
+    this.helpdeskService.getTickets().subscribe(
       (data: any[]) => {
         this.tickets = data;
       },
@@ -23,7 +30,7 @@ export class TicketListComponent implements OnInit{
         console.log(error);
       }
     );
-  }
+  } 
   
 
 }

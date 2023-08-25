@@ -9,7 +9,7 @@ import { HelpdeskService } from '../helpdesk.service';
 })
 
 export class TicketFormComponent implements OnInit {
-  ticket: any;
+  ticket: any = {};
   isEditing: boolean = false;
   
     constructor(private route: ActivatedRoute, private router: Router, private helpdeskService: HelpdeskService){
@@ -23,8 +23,8 @@ export class TicketFormComponent implements OnInit {
         this.getTicketDetails(+id);
       }
     }
-    getTicketDetails(id: number) {
-      this.helpdeskService.getTicket(id).subscribe((ticket) => {
+    getTicketDetails(idTicket: number) {
+      this.helpdeskService.getTicket(idTicket).subscribe((ticket) => {
         this.ticket = ticket;});
     }
   
