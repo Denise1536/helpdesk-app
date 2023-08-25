@@ -17,7 +17,7 @@ export class TicketFormComponent implements OnInit {
     }
   
     ngOnInit(): void {
-      const id = this.route.snapshot.paramMap.get('id');
+      const id = this.route.snapshot.paramMap.get('idTicket');
       if (id) {
         this.isEditing = true;
         this.getTicketDetails(+id);
@@ -31,7 +31,7 @@ export class TicketFormComponent implements OnInit {
     updateTicket() {
       if (this.isEditing) {
         this.helpdeskService
-          .updateTicket(this.ticket.id, this.ticket)
+          .updateTicket(this.ticket.idTicket, this.ticket)
           .subscribe(() => {
             this.router.navigate(['/tickets']); });
       } else {

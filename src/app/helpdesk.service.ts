@@ -17,7 +17,7 @@ export class HelpdeskService {
   getTicket(idTicket:number):
   Observable<any> {
     const url = `${this.apiUrl}/${idTicket}`;
-    return this.http.get<any>(url);
+    return this.http.get<any>(this.apiUrl);
   }
 
   createTicket(ticket: any): Observable<any> {

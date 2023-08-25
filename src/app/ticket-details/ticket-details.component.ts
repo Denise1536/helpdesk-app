@@ -20,8 +20,8 @@ ngOnInit(): void {
 getTicketDetails() {
   const id = this.route.snapshot.paramMap.get('idTicket');
   if (id) {
-    this.helpdeskService.getTicket(+id).subscribe((ticket: any) => {
-      this.tickets = ticket;
+    this.helpdeskService.getTicket(+id).subscribe((tickets) => {
+      this.tickets = tickets;
     });
   }
 }

@@ -28,8 +28,8 @@ namespace HelpDeskAPI.Controllers
         {
             var ticket = _dbContext.Tickets.Find(idTicket);
 
-            if (ticket == null) { return NotFound(); }
-            return ticket;
+            if (ticket != null) { return ticket; }
+            return NotFound();
         }
 
         [HttpPost]
