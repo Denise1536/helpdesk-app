@@ -45,6 +45,6 @@ app.MapControllers();
 
 app.UseCors();
 
-app.MapTicketEndpoints();
+//app.MapTicketEndpoints();
 
 app.Run();

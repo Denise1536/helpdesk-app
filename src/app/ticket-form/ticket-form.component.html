@@ -17,8 +17,31 @@
         <label for="dateOpened">Date opened</label>
         <input type="datetime" id="dateOpened" name="dateOpened" [(ngModel)]="ticket.dateOpened" />
       </div>
+
       <div>
-        <button type="submit"> {{ isEditing ? 'Update' : 'Save' }} Save </button>
+        <label for="Resolution">Resolution</label>
+        <input type="text" id="Resolution" name="Resolution" [(ngModel)]="ticket.Resolution" />
+      </div>
+      <div>
+        <label for="dateClosed">Date closed</label>
+        <input type="datetime" id="dateClosed" name="dateClosed" [(ngModel)]="ticket.dateClosed" />
+      </div>
+      <div>
+        <label for="ResolvedBy">Resolved by</label>
+        <input type="text" id="ResolvedBy" name="ResolvedBy" [(ngModel)]="ticket.ResolvedBy" />
+      </div>
+      <div>
+        <label for="status">Status</label>
+        <select name="status" id="status"> <option value="true">Open</option> <option value="false">Closed</option>  [(ngModel)]="ticket.status"</select>
+      </div>
+
+      <div>
+        <label for="Favorites"> Favorite?</label>
+        <select name="Favorites" id="Favorites"> <option value="true">Yes</option> <option value="false">No</option>  [(ngModel)]="ticket.Favorites"</select>
+      </div>
+
+      <div>
+        <button type="submit"> {{ isEditing ? 'Update' : 'Save' }} </button>
         <button type="button" (click)="cancelForm()">Cancel</button>
       </div>
     </form>

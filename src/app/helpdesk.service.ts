@@ -14,8 +14,9 @@ export class HelpdeskService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getTicket(idTicket: number): Observable<any> {
-    const url = `${this.apiUrl}/${idTicket}`;
+  getTicket(id: number): Observable<any> {
+    console.log(id)
+    const url = `${this.apiUrl}/${id}`;
     return this.http.get<any>(url);
   }
 
@@ -23,8 +24,9 @@ export class HelpdeskService {
     return this.http.post<any>(this.apiUrl, ticket);
   }
 
-  updateTicket(idTicket: number, ticket: any): Observable<any> {
-    const url = `${this.apiUrl}/${idTicket}`;
+  updateTicket(id: number, ticket: any): Observable<any> {
+    console.log(ticket)
+    const url = `${this.apiUrl}/${id}`;
     return this.http.put<any>(url, ticket);
   }
 

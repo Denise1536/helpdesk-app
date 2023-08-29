@@ -17,10 +17,10 @@ export class TicketFormComponent implements OnInit {
     }
   
     ngOnInit(): void {
-      const id = this.route.snapshot.paramMap.get('idTicket');
+      const id = this.route.snapshot.paramMap.get('id');
       if (id) {
         this.isEditing = true;
-        this.getTicketDetails(+id);
+        this.getTicketDetails(Number(id));
       }
     }
     getTicketDetails(idTicket: number) {

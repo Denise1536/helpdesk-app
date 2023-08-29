@@ -15,11 +15,13 @@
           <td>{{ ticket.details }}</td>
           <td>
             <button [routerLink]="['/tickets', ticket.idTicket]">View</button>  
+            <button [routerLink]="['/update-ticket', ticket.idTicket]">Update</button>
           </td>
         </tr>
       </tbody>
     </table>
     <p></p>
   <button routerLink="/add-ticket">Create a ticket</button>
-  
+  <p></p>
+  <button routerLink="/get-favorites">See bookmarked tickets</button>
   </div>

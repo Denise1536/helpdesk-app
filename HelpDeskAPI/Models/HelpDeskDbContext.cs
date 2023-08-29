@@ -46,6 +46,7 @@ public partial class HelpDeskDbContext : DbContext
             entity.Property(e => e.DateClosed).HasColumnType("date");
             entity.Property(e => e.DateOpened).HasColumnType("date");
             entity.Property(e => e.Details).IsUnicode(false);
+            entity.Property(e => e.Favorites).HasDefaultValueSql("('false')");
             entity.Property(e => e.LastOpened).HasColumnType("date");
             entity.Property(e => e.Resolution).IsUnicode(false);
             entity.Property(e => e.ResolvedBy)

@@ -23,10 +23,10 @@ namespace HelpDeskAPI.Controllers
             return _dbContext.Tickets.ToList();
         }
 
-        [HttpGet("{idTicket}")]
-        public ActionResult<Ticket> GetTicket(int idTicket)
+        [HttpGet("{id}")]
+        public ActionResult<Ticket> GetTicket(int id)
         {
-            var ticket = _dbContext.Tickets.Find(idTicket);
+            var ticket = _dbContext.Tickets.Find(id);
       //we edited the two lines below 8.24
             if (ticket != null) { return ticket; }
             return NotFound();
@@ -50,12 +50,13 @@ namespace HelpDeskAPI.Controllers
             ticket.ResolvedBy = updatedTicket.ResolvedBy;
             ticket.DateClosed = updatedTicket.DateClosed;
             ticket.Status = updatedTicket.Status;
+            ticket.Favorites = updatedTicket.Favorites;
             _dbContext.Tickets.Update(ticket);
             _dbContext.SaveChanges();
             return NoContent();
         }
-
-        [HttpPut("{Favorite1}")]
+    /*
+        [ HttpPut("{Favorite1}")]
         public IActionResult AddFavorite(int idTicket, [FromBody] Favorite addFavorite)
         {
             var favorite = _dbContext.Favorites.Find(idTicket);
@@ -65,8 +66,8 @@ namespace HelpDeskAPI.Controllers
             _dbContext.SaveChanges();
             return NoContent();
 
-        }
-
+        } 
+    */
         [HttpDelete("{Favorite1}")]
         public IActionResult DeleteFavorite(int idTicket, [FromBody] Favorite deleteFavorite)
         {
@@ -79,7 +80,7 @@ namespace HelpDeskAPI.Controllers
 
         }
 
-        [HttpGet("{GetFavorites}")]
+        [HttpGet("/GetFavorites")]
         public ActionResult<IEnumerable<Favorite>> GetFavorites()
         {
             return _dbContext.Favorites.ToList();

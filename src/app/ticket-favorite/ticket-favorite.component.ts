@@ -18,9 +18,9 @@ export class TicketFavoriteComponent implements OnInit{
   }
   
   getFavorites() {
-    const id = this.route.snapshot.paramMap.get('idTicket');
+    const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.helpdeskService.getTicket(+id).subscribe((ticket: any) => {
+      this.helpdeskService.getTicket(Number(id)).subscribe((ticket: any) => {
         this.tickets = ticket;
       });
     }
