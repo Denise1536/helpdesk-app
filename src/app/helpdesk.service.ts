@@ -39,9 +39,9 @@ export class HelpdeskService {
     return this.http.post<any>(url, favorite);
   }
 
-  getFavorites(favorite: any): Observable<any> {
-    const url = `${this.apiUrl}/${favorite}`;
-    return this.http.get<any>(url);
+  getFavorites(): Observable<any[]> {
+    
+    return this.http.get<any[]>(this.apiUrl);
   }
 
 }

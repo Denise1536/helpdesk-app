@@ -10,25 +10,27 @@ import { HelpdeskService } from '../helpdesk.service';
 export class TicketFavoriteComponent implements OnInit{
 
   tickets: any; 
+  favorites: any[] = [];
   
   constructor(private route: ActivatedRoute,private helpdeskService: HelpdeskService) {}
   
   ngOnInit(): void {
-    this.getFavorites();
+    this.getFavoritesFromService();
   }
   
-  getFavorites() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.helpdeskService.getTicket(Number(id)).subscribe((ticket: any) => {
-        this.tickets = ticket;
-      });
-    }
-  }
-  
-  
-  
-  
-  
-  }
-  
+  getFavoritesFromService() {
+    this.helpdeskService.getFavorites().subscribe(
+      (data: any[]) => {
+        this.favorites = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  } 
+}
+
+
+
+
+ 
