@@ -19,8 +19,10 @@ export class TicketFavoriteComponent implements OnInit{
   }
   
   getFavoritesFromService() {
+    console.log("gettingfavorites")
     this.helpdeskService.getFavorites().subscribe(
       (data: any[]) => {
+        console.log(data)
         this.favorites = data;
       },
       (error) => {

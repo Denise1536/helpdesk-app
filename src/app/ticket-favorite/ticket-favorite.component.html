@@ -5,15 +5,14 @@
     <table>
       <thead>
         <tr>
-          <th>ID</th>
+          
           <th>Title</th>
           <th>Details</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let ticket of tickets"> 
-          <td>{{ ticket.favorite }}</td>
-          <td>{{ ticket.title }}</td>
+        <tr *ngFor="let ticket of favorites"> 
+           <td>{{ ticket.title }}</td>
           <td>{{ ticket.details }}</td>
           <td>
             <button [routerLink]="['/tickets', ticket.idTicket]">View</button>  
@@ -22,7 +21,11 @@
         </tr>
       </tbody>
     </table>
-    
+    <div>
+      <button routerLink="/tickets">
+        Back to List
+      </button>
+    </div>
   </div>
    
    

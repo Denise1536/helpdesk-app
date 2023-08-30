@@ -81,9 +81,9 @@ namespace HelpDeskAPI.Controllers
         }
 
         [HttpGet("/GetFavorites")]
-        public ActionResult<IEnumerable<Favorite>> GetFavorites()
+        public ActionResult<IEnumerable<Ticket>> GetFavorites()
         {
-            return _dbContext.Favorites.ToList();
+      return _dbContext.Tickets.Where(x => x.Favorites == true).ToList();
         }
 
 
